@@ -25,7 +25,7 @@ let topol input_list =
             if PMap.mem x !graph then PMap.find x !graph
             else ([], false, false) in
         match fnd with
-        (* odwiedzony, nie dodany do wyniku - cykl *)
+        (* odwiedzony, niedodany do wyniku - cykl *)
         | (_, true, false) -> raise Cykliczne
         (* odwiedzony, dodany do wyniku *)
         | (_, true, true) -> ()
