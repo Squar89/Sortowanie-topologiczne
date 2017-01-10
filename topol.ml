@@ -19,12 +19,17 @@ let topol input_list =
     let w = ref [] in
     (* funkcja przechodząca po grafie (DFS) *)
     let rec dfs x =
+    (* sprawdza czy x znajduje sie na mapie jeśli tak to zwraca jego        *)
+    (* wartość w przeciwnym wypadku podaje trójkę (później doda go do mapy) *)
         let fnd =
             if PMap.mem x !graph then PMap.find x !graph
             else ([], false, false) in
         match fnd with
+        (* odwiedzony, nie dodany do wyniku - cykl *)
         | (_, true, false) -> raise Cykliczne
+        (* odwiedzony, dodany do wyniku *)
         | (_, true, true) -> ()
+        (* nowo odwiedzony wierzchołek *)
         | (xlist, _, _) ->
         begin
             graph := PMap.add x (xlist, true, false) !graph;
