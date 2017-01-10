@@ -1,7 +1,14 @@
+(* Autor: Jakub Wróblewski gr. 5 386407    *)
+(* Recenzent: Mateusz Bajorek gr. ? ?????? *)
+
+(* wyjątek podnoszony gdy graf z wejścia jest cykliczny *)
 exception Cykliczne
 
 let topol input_list =
-    (* creates graph (map) from provided list *)
+    (* funkcja tworząca graf z podanej na wejsciu listy   *)
+    (* graf jest tworzony przy pomocy modułu PMap         *)
+    (* wartość trzymana w mapie to trójka:                *)
+    (* (lista sąsiedztwa, wejście, wyjście z wierzchołka) *)
     let make l =
         let f acc (a, alist) =
             PMap.add a (alist, false, false) acc
@@ -10,6 +17,7 @@ let topol input_list =
     in
     let graph = ref (make input_list) in
     let w = ref [] in
+    (* funkcja przechodząca po grafie (DFS) *)
     let rec dfs x =
         let fnd = PMap.find x !graph in
         match fnd with
