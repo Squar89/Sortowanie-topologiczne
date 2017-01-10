@@ -1,4 +1,4 @@
-(* Autor: Jakub Wróblewski gr. 5 386407    *)
+(* Autor: Jakub Wróblewski gr. 5 386401    *)
 (* Recenzent: Mateusz Bajorek gr. 3 385122 *)
 
 (* wyjątek podnoszony gdy graf z wejścia jest cykliczny *)
