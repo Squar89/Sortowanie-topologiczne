@@ -19,7 +19,7 @@ let topol input_list =
     let w = ref [] in
     (* funkcja przechodząca po grafie (DFS) *)
     let rec dfs x =
-    (* sprawdza czy x znajduje sie na mapie jeśli tak to zwraca jego        *)
+    (* sprawdza czy x znajduje się na mapie jeśli tak to zwraca jego        *)
     (* wartość w przeciwnym wypadku podaje trójkę (później doda go do mapy) *)
         let fnd =
             if PMap.mem x !graph then PMap.find x !graph
